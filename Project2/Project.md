@@ -1,47 +1,45 @@
 # Dungeon Crawler Project Report
 
-## Overview
-This project expands upon a base server to create a dungeon crawler game with a structured combat system and interactive AI-driven dialogues.
+## Section 1: Scenario Descriptions
+This system implements multiple gameplay scenarios to enhance player experience and interaction with AI-driven mechanics.
 
-## Files and Their Functions
+### Combat Scenarios
+- **Standard Attack**: Player rolls dice to determine damage dealt to an enemy.
+- **Defensive Strategy**: Player opts to defend, mitigating incoming damage.
+- **Flee Attempt**: Player tries to escape combat but may fail, leading to further encounters.
+- **Dynamic Dialogue**: Player interacts with enemies using AI-generated responses.
 
-### `dice_gold_tools.py`
-- Generates gold and rolls dice for combat outcomes.
-- Uses random number generators:
-  - Gold: between 10 and 100 (awarded after defeating an enemy).
-  - Dice: between 1 and 20 (rolled during combat).
+### AI Interaction Scenarios
+- **Contextual AI Responses**: Enemies respond dynamically based on player dialogue choices.
+- **Adaptive Enemy Behavior**: Enemies choose attacks or defense strategically based on health.
 
-### `Fighting.py`
-- Core combat system, offering the player four choices:
-  1. **Attack** – Uses dice roll to determine damage (1 to 20).
-  2. **Defend** – Prevents damage for the turn.
-  3. **Flee** – Allows escape but may fail, leading to future encounters.
-  4. **Talk** – Uses `dm_ai_tool.py` for dynamic interactions.
+### Reward Mechanics
+- **Gold Distribution**: Player is awarded randomized gold amounts upon victory.
 
-- Enemy AI:
-  - Chooses between attacking or defending, prioritizing defense as health decreases.
-  - Gold is awarded upon victory.
+## Section 2: AI Method - Retrieval-Augmented Generation (RAG)
+- Implemented in `dm_ai_tool.py` to generate dynamic enemy dialogues.
+- Uses Deepseek-r1:1.5b for AI-driven contextual responses.
 
-### `dm_ai_tool.py`
-- Uses a Retrieval-Augmented Generation (RAG) network alongside the server system for text responses.
-- AI Model: Deepseek-r1:1.5b, allowing dynamic dialogues.
-- Planned server integration for multiplayer interactions (stretch goal).
+## Section 3: AI Method - Randomization Techniques
+- `dice_gold_tools.py` utilizes random number generation for combat dice rolls (1-20) and gold rewards (10-100).
+- Ensures variability in combat outcomes and rewards.
 
-### `dndnetwork.py`
-- Modified server starter to support turn-based mechanics.
+## Section 4: AI Method - Decision-Based Enemy Behavior
+- `Fighting.py` includes AI logic for enemy decisions:
+  - Random attack or defend choices.
+  - Prioritization of defense when health is low.
 
-### `Project_Main.py`
-- Main entry point calling all other modules.
-- Initially designed for multiplayer but currently modified for solo play.
-- Commands:
-  - `/combat` – Starts a fight.
-  - `/quit` – Ends the program.
+## Section 5: AI Method - Server-Based Interaction
+- `dndnetwork.py` enables turn-based interaction within the game framework.
+- Designed to support multiplayer expansion in future iterations.
 
-## Future Improvements
-- Implementing multiplayer interactions.
-- Enhancing AI dialogue depth.
-- Refining game mechanics based on player feedback.
+## Section 6: AI Method - Modular Game Design
+- `Project_Main.py` integrates all components cohesively.
+- Modular structure allows future scalability.
 
+---
 
-
-
+### Future Plans
+- Expanding multiplayer capabilities.
+- Refining AI interactions for enhanced immersion.
+- Improving overall gameplay balance.
