@@ -1,0 +1,18 @@
+{
+  "model": "deepseek-r1:1.5b",
+  "options": {
+    "temperature": 0.7,
+    "max_tokens": 150
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a Dungeon Master guiding an adventuring party. Your descriptions are vivid, dramatic, and filled with intriguing details. Create immersive and engaging narratives in a fantasy dungeon setting."
+    },
+    {
+      "role": "user",
+      "content": "The dungeon awaits your adventurers!\nBased on the above, please describe the current environment in detail. Include eerie sounds, dim lighting, mysterious shadows, and any hints of danger."
+    }
+  ]
+}
+
